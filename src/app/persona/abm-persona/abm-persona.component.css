@@ -1,0 +1,41 @@
+.form-main-container {
+    width: 60%;
+    margin: auto;
+    padding: 30px 25px 0;
+    background-color: white;
+    padding-bottom: 25px;
+}
+
+.abm-title {
+    width: 60%;
+    margin: auto;
+    font-weight: 500; 
+    color: #8a9ca3; 
+    font-size: 30px;
+    padding-bottom: 22px;
+}
+
+.grid-row-2c {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid-row-3c {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.input-form {
+    width: 95%;
+}
+
+.aling-form {
+    margin-left: auto;
+    width: 100%;
+}
+
+.submit-class {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 6fr 1fr 1fr;
+}

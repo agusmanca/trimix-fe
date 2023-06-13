@@ -1,0 +1,127 @@
+<div>
+    <div class="pers-title tab-container">
+        <div class="aling-form">
+            <h1>Personas</h1>
+        </div>
+
+        <div style="margin-left: auto; padding-right: 20px;">
+            <button mat-raised-button style="background-color: rgb(11, 104, 11); color: aliceblue;" (click)="crearPersona()">+ Nuevo</button>
+        </div>
+    </div>
+
+    <div class="pers-filter-container">
+        <div class="module-title">
+            <h2>Filtros:</h2>            
+        </div>
+
+        <div class="pers-filter-fields-container">
+            <div>
+                <mat-tab-group>
+                    <mat-tab label="Nombre">
+                        <div class="tab-container">
+                            <div class="aling-form">
+                                <mat-form-field class="input-form">
+                                    <mat-label>Nombre:</mat-label>
+                                    <input matInput [formControl]="nombre">
+                                </mat-form-field>
+                            </div>
+                            <div style="padding-top: 12px;">
+                                <button mat-raised-button color="primary" (click)="filtrarNombre(0)">Buscar <mat-icon>search</mat-icon></button>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                    <mat-tab label="Tipo Documento"> 
+                        <div class="tab-container">
+                            <div class="aling-form">
+                                <mat-form-field style="width: 94%;">
+                                    <mat-label>Tipo Documento</mat-label>
+                                    <mat-select [formControl]="tipoDni">
+                                        <mat-option default value="all">Todos</mat-option>
+                                        <mat-option value="dni">DNI</mat-option>
+                                        <mat-option value="pasaporte">Pasaporte</mat-option>
+                                        <mat-option value="cedula">Cédula</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+    
+                            <div style="padding-top: 12px;">
+                                <button mat-raised-button color="primary" (click)="filtrarTipoDoc(0)">Buscar <mat-icon>search</mat-icon></button>
+                            </div>
+                        </div>    
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+       
+            <div style="padding-top: 72px">
+                <button mat-raised-button color="warn" (click)="limpiarFiltro()">Limpiar Filtro <mat-icon>search</mat-icon></button>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="pers-table-container" *ngIf="personaPage.content.length > 0">
+
+        <div class="module-title">
+            <h2>Persona:</h2>
+        </div>
+
+        <table mat-table [dataSource]="personaPage.content" class="mat-elevation-z8 tab-pers">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> Id: </th>
+                <td mat-cell *matCellDef="let personas"> {{personas.id}} </td>
+            </ng-container> 
+    
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef> Nombre: </th>
+                <td mat-cell *matCellDef="let personas"> {{personas.nombre}} </td>
+            </ng-container>                  
+            
+            <ng-container matColumnDef="apellido">
+                <th mat-header-cell *matHeaderCellDef> Apellido: </th>
+                <td mat-cell *matCellDef="let personas"> {{ personas.apellido }} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="dni">
+                <th mat-header-cell *matHeaderCellDef> DNI: </th>
+                <td mat-cell *matCellDef="let personas"> {{ personas.dni }} </td>
+            </ng-container> 
+    
+            <ng-container matColumnDef="tipoDni">
+                <th mat-header-cell *matHeaderCellDef> Tipo Documento: </th>
+                <td mat-cell *matCellDef="let personas"> {{ personas.tipoDni }} </td>
+            </ng-container> 
+    
+            <ng-container matColumnDef="fechaNacimiento">
+                <th mat-header-cell *matHeaderCellDef> Fecha Nacimiento: </th>
+                <td mat-cell *matCellDef="let personas"> {{ personas.fechaNacimiento | date:"dd/MM/yyyy"}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="actualizar">
+                <th mat-header-cell *matHeaderCellDef> Actualizar: </th>
+                <td mat-cell *matCellDef="let personas">  
+                <button mat-icon-button color="primary" (click)="actualizarPersona(personas.id)">
+                    <mat-icon>save</mat-icon>
+                </button>
+            </td>
+            </ng-container> 
+    
+            <ng-container matColumnDef="eliminar">
+                <th mat-header-cell *matHeaderCellDef> Eliminar: </th>
+                <td mat-cell *matCellDef="let personas">
+                <button mat-icon-button color="warn" (click)="eliminarPersona(personas.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </ng-container> 
+    
+            <tr mat-header-row *matHeaderRowDef="columnsName"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnsName;"></tr>
+        </table>
+    
+        <!--<div>
+            <ngb-pagination class="d-flex justify-content-center" [collectionSize]="50" [(page)]="personaPage.page"></ngb-pagination>
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,52 @@
+.pers-title {
+    width: 81vw;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+.pers-title h1 { font-weight: 500; color: #8a9ca3; font-size: 25px;}
+
+.pers-filter-container {
+    width: 80vw;
+    margin: 0 auto;
+    background-color: white;
+    padding-top: 15px;
+    margin-bottom: 30px;
+}
+
+.pers-filter-fields-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding-left: 20px;
+}
+
+.aling-form {
+    margin-left: auto;
+    width: 100%;
+}
+
+.input-form {
+    width: 95%;
+}
+
+.pers-table-container {
+    width: 80vw;
+    margin: 0 auto;
+    background-color: white;
+    padding-top: 15px;
+}
+
+.module-title {
+    font-weight: 500; 
+    color: #8a9ca3; 
+    font-size: 25px;
+    padding-left: 24px;
+}
+
+.tab-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    padding-top: 15px;
+}
+
